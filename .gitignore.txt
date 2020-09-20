@@ -1,6 +1,0 @@
-__pycache__
-__init__.py
-.vscode
-.gitignore
-venv
-queriesDjango
