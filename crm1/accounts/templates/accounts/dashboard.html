@@ -20,6 +20,9 @@
                 {% for customer in customers %}
                 <tr>
                     <td>
+                        <a href="{% url 'customer' customer.id %}">Show info</a>
+                    </td>
+                    <td>
                         {{customer.name}}
                         
                     </td>
