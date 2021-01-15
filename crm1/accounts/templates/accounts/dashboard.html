@@ -11,8 +11,8 @@
         <h5>ПОКУПАТЕЛИ:</h5>
         <hr>
         <div class="card card-body">
-            <a class="btn btn-primary  btn-sm btn-block" href="">Добавить Покупателя</a>
-            <table class="table table-sm">
+            <a class="btn btn-primary  btn-sm btn-block" href="">Добавить данные о клиенте</a>
+            <table class="table table-sm" style = 'background: #adb5bd'>
                 <tr>
                     <th>Покупатель</th>
                     <th>Телефон</th>
@@ -20,14 +20,14 @@
                 {% for customer in customers %}
                 <tr>
                     <td>
-                        <a href="{% url 'customer' customer.id %}">Show info</a>
-                    </td>
-                    <td>
                         {{customer.name}}
                         
                     </td>
                     <td>
                         {{customer.phone}}
+                    </td>
+                    <td>
+                        <a class="btn btn-primary  btn-sm btn-block"  href="{% url 'customer' customer.id %}">Инфо</a>
                     </td>
                 </tr>
                 {% endfor %}
@@ -40,8 +40,7 @@
         <h5>ЗАКАЗЫ:</h5>
         <hr>
         <div class="card card-body">
-            <a class="btn btn-primary  btn-sm btn-block" href="">Создать Заказ</a>
-            <table class="table table-sm">
+            <table class="table table-sm" style = 'background: #adb5bd'>
                 <tr>
                     <th>Товар</th>
                     <th>Дата заказа</th>
@@ -61,8 +60,8 @@
                     <td>
                         {{order.status}}
                     </td>
-                    <td><a href=""></a>Обновить</td>              
-                    <td><a href=""></a>Удалить</td>
+                    <td><a class= 'btn btn-sm btn-info' href="{% url 'update_order' order.id %}">Обновить</a></td>              
+                    <td><a class= 'btn btn-sm btn-danger' href="{% url 'delete_order' order.id %}">Удалить</a></td>
                     
                 </tr>
                 {% endfor %}

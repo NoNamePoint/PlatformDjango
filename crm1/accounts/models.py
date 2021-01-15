@@ -1,6 +1,7 @@
 from django.db import models
 
 
+
 class Customer(models.Model):
     class Meta:	
 	    verbose_name = 'Заказчик'
@@ -45,6 +46,9 @@ class Product(models.Model):
 	description = models.CharField(max_length=200, verbose_name='Описание', null=True)
 	date_created = models.DateTimeField(auto_now_add=True, null=True)
 	tag = models.ManyToManyField(Tag, verbose_name = 'Тег')
+	
+	def __str__(self):
+    		return self.name
 
 class Order(models.Model):
     class Meta:
@@ -59,3 +63,5 @@ class Order(models.Model):
     product = models.ForeignKey(Product, null=True, verbose_name='Товар', on_delete=models.SET_NULL)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
     status = models.CharField(max_length=200, null=True, verbose_name='Статус', choices=STATUS)
+
+

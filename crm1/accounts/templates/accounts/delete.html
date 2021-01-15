@@ -1,0 +1,22 @@
+{%  extends 'accounts/main.html' %}
+
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-body">
+            <p>Вы действительно хотите удалить "{{ order.product.name }}" из заказа?</p>
+
+            <form action="" method='POST'>
+            {% csrf_token %}
+            <a href="{% url 'home' %}">Отмена</a>
+                
+            <input class='btn btn-sm btn-danger' type="submit">
+
+            </form> 
+        </div>
+    </div>
+</div>
+
+{% endblock %}

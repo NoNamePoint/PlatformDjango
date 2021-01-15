@@ -7,10 +7,10 @@
 <div class="row">
     <div class="col-md">
         <div class="card card-body">
-            <h5>Покупатель:</h5>
+            <h5>Покупатель:  {{ customer.name }}</h5>
             <hr>
             <a class="btn btn-outline-info  btn-sm btn-block" href="">Обновить информацию</a>
-            <a class="btn btn-outline-danger  btn-sm btn-block" href="">Удалить покупателя</a>
+            <a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'create_order' customer.id %}">Добавить заказ</a>
 
         </div>
     </div>
@@ -19,8 +19,8 @@
         <div class="card card-body">
             <h5>Контакты</h5>
             <hr>
-            <p>Email: {{ customers.email }} </p>
-            <p>Телефон: {{ customers.phone }}</p>
+            <p>Email: {{ customer.email }} </p>
+            <p>Телефон: {{ customer.phone }}</p>
         </div>
     </div>
 
@@ -51,7 +51,7 @@
 <div class="row">
     <div class="col-md">
         <div class="card card-body">
-            <table class="table table-sm">
+            <table class="table table-sm" style = 'background: #adb5bd'>
                 <tr>
                     <th>Заказ</th>
                     <th>Категория</th>
@@ -63,12 +63,12 @@
                 {% for order in orders %}
                 <tr>
                     
-                        <td>{{order.product}}</td>
+                        <td>{{order.product.name}}</td>
                         <td>{{order.product.category}}</td>
                         <td>{{order.date_created}}</td>
                         <td>{{order.status}}</td>
-                        <td><a class="btn btn-sm btn-info" href="">Update</a></td>
-                        <td><a class="btn btn-sm btn-danger" href="">Remove</a></td>
+                        <td><a class="btn btn-sm btn-info" href="">Обновить</a></td>
+                        <td><a class="btn btn-sm btn-danger" href="">Удалить</a></td>
                     
                 </tr>
                 {% endfor %}
