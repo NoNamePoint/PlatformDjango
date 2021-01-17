@@ -10,9 +10,9 @@
 
             <form action="" method='POST'>
             {% csrf_token %}
-            <a href="{% url 'home' %}">Отмена</a>
+            <a class = "btn btn-sm btn-info" href="{% url 'home' %}">Отмена</a>
                 
-            <input class='btn btn-sm btn-danger' type="submit">
+            <input class='btn btn-sm btn-danger' type="submit" value = 'Удалить'>
 
             </form> 
         </div>
